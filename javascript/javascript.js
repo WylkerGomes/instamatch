@@ -30,23 +30,16 @@ $(document).ready(function(){ // this is to show the data in your document. it c
     $.getJSON(url, function(data){
 
         var insta_data = data;
+        
+        //.graphql.user.edge_owner_to_timeline_media.edges["0"].node.edge_media_to_caption.edges["0"].node /// when we have an array inside of another array we need to say the position eg:.["0"].
 
-        var insta_user = insta_data.graphql.user;
+        var insta_text = insta_data.graphql.user.edge_owner_to_timeline_media.edges["0"].node.edge_media_to_caption.edges["0"].node;
 
-        var insta_info = insta_user.edge_owner_to_timeline_media.edges;
-
-        var insta_code = insta_info.node;
-
-        //   var insta_text = insta_code.text;
+      
 
 
-        console.log(insta_data.logging_page_id);
-
-        console.log(insta_user);
-
-        console.log(insta_info);
-
-        console.log(insta_code);
+        
+        console.log(insta_text);
 
         // console.log(insta_data.graphql.user.edges.node.edge_media_to_caption.edges.node.text);
         //
